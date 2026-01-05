@@ -3,8 +3,6 @@ package pokecache
 import (
 	"sync"
 	"time"
-
-    "github.com/Moosestock/podedex/internal/pokecache"
 )
 
 // Cache -

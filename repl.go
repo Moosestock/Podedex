@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Moosestock/Podedex"
+	"github.com/Moosestock/Podedex/internal/pokeapi"
 )
 
 type config struct {
