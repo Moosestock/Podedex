@@ -1,29 +1,18 @@
 package main
 
-import ("fmt"
-    "strings"
-    "bufio"
-    "os"
+import (
+	"time"
+
+	"github.com/bootdotdev/pokedexcli/internal/pokeapi"
 )
 
 func main() {
-    scanner := bufio.NewScanner(os.Stdin)
-    for {
-        fmt.Print("Pokedex > ")
-         
-        scanner.Scan()
-        text := scanner.Text()
-        if text != "" {
-            words := cleanInput(text)
-            fmt.Printf("Your command was: %s\n", words[0])
-        }        
-    }
+	pokeClient := pokeapi.NewClient(5*time.Second, 5*time.Minute)
+	cfg := &config{
+		caughtPokemon: map[string]pokeapi.Pokemon{},
+		pokeapiClient: pokeClient,
+	}
 
-    if err := scanner.Err(); err != nil {
-        fmt.Printf("Error: %w", err)
-    }
+	startRepl(cfg)
 }
 
-func cleanInput(text string) []string {
-    return strings.Fields(strings.ToLower(text))
-}
