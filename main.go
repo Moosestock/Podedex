@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/Moosestock/Podedex/pokeapi"
+	"github.com/Moosestock/Podedex/internal/pokeapi"
 )
 
 func main() {
